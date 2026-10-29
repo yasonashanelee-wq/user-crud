@@ -1,17 +1,126 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Food Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <!-- Search -->
+  <ion-searchbar
+    placeholder="Search food"
+    [(ngModel)]="searchText"
+    (ionInput)="onSearchChange($event)">
+  </ion-searchbar>
+
+
+  <!-- Category Filter -->
+  <ion-segment
+    [(ngModel)]="selectedCategory"
+    (ionChange)="onCategoryChange($event)"
+    scrollable>
+
+    <ion-segment-button value="All">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Burger">
+      <ion-label>Burger</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Pizza">
+      <ion-label>Pizza</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Chicken">
+      <ion-label>Chicken</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Pasta">
+      <ion-label>Pasta</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Dessert">
+      <ion-label>Dessert</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="Drinks">
+      <ion-label>Drinks</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+
+  <!-- Food List -->
+  <ion-list>
+
+    <ion-item-sliding
+      *ngFor="let food of filteredFoods">
+
+      <ion-item>
+
+        <ion-label>
+
+          <h2>{{ food.name }}</h2>
+
+          <p>
+            Category: {{ food.category }}
+          </p>
+
+          <p>
+            Price: ₱{{ food.price }}
+          </p>
+
+          <p>
+            Quantity: {{ food.quantity }}
+          </p>
+
+          <p>
+            {{ food.description }}
+          </p>
+
+        </ion-label>
+
+
+        <ion-button
+          size="small"
+          fill="outline"
+          (click)="updateFood(food)">
+
+          Update
+
+        </ion-button>
+
+      </ion-item>
+
+
+      <!-- Delete -->
+      <ion-item-options side="end">
+
+        <ion-item-option
+          color="danger"
+          (click)="deleteFood(food.id)">
+
+          Delete
+
+        </ion-item-option>
+
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+  <!-- No Food Message -->
+  <ion-text
+    *ngIf="filteredFoods.length === 0"
+    color="medium">
+
+    <p class="ion-text-center">
+      No food found.
+    </p>
+
+  </ion-text>
+
 </ion-content>

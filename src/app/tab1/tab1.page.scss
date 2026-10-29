@@ -1,0 +1,149 @@
+ion-content {
+  --background: linear-gradient(
+    135deg,
+    #ead1df 0%,
+    #e8d5e8 50%,
+    #dcd8ef 100%
+  );
+}
+
+/* FORM FIELDS */
+ion-item {
+  --background: #f8edf4;
+  --color: #59445f;
+  --border-color: transparent;
+
+  margin: 8px 0;
+  padding: 2px 8px;
+
+  border: 1px solid #ddc1d6;
+  border-radius: 14px;
+
+  box-shadow: 0 3px 10px rgba(91, 65, 95, 0.10);
+}
+
+/* FOCUS */
+ion-item:focus-within {
+  border-color: #bd8fbd;
+
+  box-shadow:
+    0 4px 14px rgba(145, 91, 145, 0.16);
+}
+
+/* INPUTS */
+ion-input,
+ion-select,
+ion-textarea {
+  --color: #57425e;
+  --placeholder-color: #9b819e;
+  --highlight-color-focused: #a46ca9;
+}
+
+/* LABELS */
+ion-input::part(label),
+ion-select::part(label),
+ion-textarea::part(label) {
+  color: #76527d;
+  font-weight: 600;
+}
+
+/* DESCRIPTION - MAKE IT COMPACT */
+ion-textarea {
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  min-height: 55px;
+}
+
+/* ADD FOOD BUTTON */
+ion-button {
+  --background: linear-gradient(
+    135deg,
+    #bd70b8,
+    #8d7bc9
+  );
+
+  --background-hover: #a961a7;
+  --background-activated: #925294;
+  --color: #ffffff;
+
+  height: 48px;
+  margin-top: 12px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 6px 16px rgba(119, 75, 130, 0.22);
+}
+
+ion-button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================
+   FOOD EVERYDAY HEADER
+========================= */
+
+.app-header {
+  width: 100%;
+  min-height: 105px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 15px 18px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    #c06ac7,
+    #8d78d5
+  );
+
+  color: white;
+
+  border-radius: 0 0 18px 18px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* PROFILE PHOTO */
+
+.profile-image {
+  width: 68px;
+  height: 68px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 3px solid white;
+
+  flex-shrink: 0;
+}
+
+/* HEADER TEXT */
+
+.header-text {
+  margin-left: 14px;
+}
+
+.header-text h1 {
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+}
+
+.header-text p {
+  margin: 5px 0 0;
+
+  font-size: 14px;
+
+  opacity: 0.95;
+}

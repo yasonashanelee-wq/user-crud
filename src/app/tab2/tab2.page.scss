@@ -1,0 +1,148 @@
+ion-content {
+  --background: linear-gradient(
+    135deg,
+    #e8d2e1 0%,
+    #ead7e9 50%,
+    #ddd9ee 100%
+  );
+}
+
+/* HEADER */
+ion-header {
+  ion-toolbar {
+    --background: #d8c1df;
+    --color: #5b416b;
+
+    box-shadow: 0 4px 12px rgba(80, 55, 90, 0.18);
+  }
+
+  ion-title {
+    font-size: 21px;
+    font-weight: 700;
+  }
+}
+
+/* SEARCH BAR */
+ion-searchbar {
+  --background: #f8edf4;
+  --color: #57425e;
+  --placeholder-color: #9b819e;
+  --icon-color: #9b62a5;
+  --clear-button-color: #9b62a5;
+
+  margin: 7px 0 17px;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 15px rgba(91, 65, 95, 0.12);
+}
+
+/* CATEGORY BAR */
+ion-segment {
+  --background: #ead9e9;
+
+  margin-bottom: 19px;
+  padding: 5px;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 15px rgba(91, 65, 95, 0.10);
+}
+
+/* CATEGORY BUTTONS */
+ion-segment-button {
+  --color: #806783;
+  --color-checked: #ffffff;
+  --indicator-color: #aa72b7;
+
+  min-height: 41px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  border-radius: 12px;
+}
+
+/* LIST */
+ion-list {
+  background: transparent;
+  padding: 0;
+}
+
+/* FOOD CARD */
+ion-item-sliding {
+  margin-bottom: 14px;
+
+  border-radius: 19px;
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 18px rgba(91, 65, 95, 0.12);
+}
+
+/* FOOD ITEM */
+ion-item {
+  --background: #f8edf4;
+  --color: #57425e;
+  --border-color: transparent;
+
+  --padding-start: 17px;
+  --padding-end: 10px;
+
+  min-height: 112px;
+
+  border-radius: 19px;
+
+  border: 1px solid #dfc6d9;
+}
+
+/* FOOD NAME */
+ion-label h2 {
+  color: #64486f;
+
+  margin-bottom: 7px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* DETAILS */
+ion-label p {
+  color: #876e8c;
+
+  margin: 3px 0;
+
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* UPDATE BUTTON */
+ion-item ion-button {
+  --color: #8b5597;
+  --border-color: #bd88c7;
+
+  --border-radius: 11px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* DELETE */
+ion-item-option {
+  font-weight: 700;
+}
+
+/* EMPTY MESSAGE */
+ion-text {
+  display: block;
+  margin-top: 35px;
+
+  color: #8d7891 !important;
+}
+
+ion-text p {
+  font-size: 15px;
+  text-align: center;
+}
