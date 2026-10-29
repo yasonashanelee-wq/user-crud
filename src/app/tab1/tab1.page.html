@@ -1,20 +1,29 @@
 <ion-content class="ion-padding">
 
+  <!-- APP HEADER -->
   <div class="app-header">
 
-  <img
-    src="assets/profile.jpg" alt="Profile"
-    class="profile-image"
-    alt="Profile"
-  />
+    <img
+      src="assets/profile.jpg"
+      alt="Profile"
+      class="profile-image"
+    />
 
-  <div class="header-text">
-    <h1>CRAVE HOUSE</h1>
-    <p>Food Management</p>
+    <div class="header-text">
+      <h1>CRAVE HOUSE</h1>
+      <p>Food Management</p>
+    </div>
+
   </div>
 
-</div>
+  <!-- CI/CD DEPLOYMENT TEST MESSAGE -->
+  <ion-text color="success">
+    <p style="text-align: center; font-weight: bold;">
+      CI/CD Deployment Test Successful - Shane Lee
+    </p>
+  </ion-text>
 
+  <!-- FOOD NAME -->
   <ion-item>
     <ion-input
       label="Food Name"
@@ -24,6 +33,7 @@
     </ion-input>
   </ion-item>
 
+  <!-- CATEGORY -->
   <ion-item>
     <ion-select
       label="Category"
@@ -58,6 +68,7 @@
     </ion-select>
   </ion-item>
 
+  <!-- PRICE -->
   <ion-item>
     <ion-input
       type="number"
@@ -68,6 +79,7 @@
     </ion-input>
   </ion-item>
 
+  <!-- QUANTITY -->
   <ion-item>
     <ion-input
       type="number"
@@ -78,6 +90,7 @@
     </ion-input>
   </ion-item>
 
+  <!-- DESCRIPTION -->
   <ion-item>
     <ion-textarea
       label="Description"
@@ -87,6 +100,7 @@
     </ion-textarea>
   </ion-item>
 
+  <!-- ADD FOOD BUTTON -->
   <ion-button
     expand="block"
     (click)="addFood()">
