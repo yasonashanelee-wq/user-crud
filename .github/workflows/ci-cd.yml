@@ -1,0 +1,82 @@
+name: CI-CD Pipeline - Shane Lee
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  continuous-integration:
+    name: Continuous Integration
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Automated Tests
+        run: npm test -- --run
+
+      - name: Build Ionic Application
+        run: npm run build
+
+  continuous-deployment:
+    name: Continuous Deployment
+    needs: continuous-integration
+
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    runs-on: [self-hosted, Windows, X64]
+
+    steps:
+      - name: Checkout Latest Code
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t shane-ionic-crud:latest .
+
+      - name: Remove Previous Container
+        shell: powershell
+        run: |
+          docker rm -f shane-ionic-crud 2>$null
+          exit 0
+
+      - name: Start Updated Container
+        run: docker run -d --name shane-ionic-crud --restart unless-stopped -p 8100:8100 shane-ionic-crud:latest
+
+      - name: Verify Application
+        shell: powershell
+        run: |
+          $success = $false
+
+          for ($i = 1; $i -le 30; $i++) {
+            try {
+              Invoke-WebRequest http://localhost:8100/ -UseBasicParsing -TimeoutSec 5 | Out-Null
+              $success = $true
+              break
+            }
+            catch {
+              Start-Sleep -Seconds 3
+            }
+          }
+
+          if (-not $success) {
+            docker logs shane-ionic-crud
+            exit 1
+          }
+
+          Write-Host "Application is running successfully!"
