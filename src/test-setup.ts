@@ -14,3 +14,16 @@ if (!window.matchMedia) {
       dispatchEvent: () => false,
     }) as MediaQueryList;
 }
+
+// Polyfill for Ionic components that use scrollTo() during unit tests.
+// jsdom does not implement scrollTo() by default.
+if (!Element.prototype.scrollTo) {
+  Element.prototype.scrollTo = function (
+    _x?: number | ScrollToOptions,
+    _y?: number
+  ): void {
+    // No scrolling is needed in the unit test environment.
+  };
+}
+
+
